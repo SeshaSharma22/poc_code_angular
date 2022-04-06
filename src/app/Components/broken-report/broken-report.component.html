@@ -1,0 +1,125 @@
+
+
+
+<app-nav-bar></app-nav-bar>
+
+
+
+<h5 align="center">Broken Pack  Report</h5>
+<br>
+<span class="output"></span>
+
+<form  #userForm = "ngForm" (ngSubmit) = "onSubmit(userForm.value)" novalidate  >
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <span>Complex&ensp;</span>
+
+      <select name="value1" id="subject" [(ngModel)]='ComplexSelected1' (ngModelChange)='onComplexSelected1($event)'  class="box" ngModel>
+        <option>Select Complex</option>
+
+        <option *ngFor="let complex of complexs" [value]="complex.complexId"> 
+          {{complex.complex_name}}
+        </option>
+
+      </select>
+    </div>
+    <div class="col">
+      <span>Location&ensp;</span>
+
+        <select name="value2" id="subject" [(ngModel)]='locationSelected' (ngModelChange)='onlocationSelected($event)'  class="box" ngModel>
+        <option>Select Location</option>
+
+        <option *ngFor="let location of lstlocation" [value]="location.dealer_city"> 
+          {{location.dealer_city}}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <span>Part Source&ensp;</span>
+      <select name="value3" id="subject" [(ngModel)]='partsourceSelected'  class="box5" ngModel>
+        
+        <option>Select Part Source</option>
+        <option *ngFor="let partsource of lstpartsource" [value]="partsource.part_source">
+          {{partsource.part_source}}
+        </option>
+      </select>
+    </div>
+    <div class="col">
+      <button  class="submit1" type="submit" (click)="toggleTag()">select</button>
+    </div>
+  </div>
+</div>
+</form>
+<hr />
+<div  *ngIf="showMe" id="divtag">
+<table  id=box class="table table-striped">
+  <thead>
+    <tr class="table-info" width="5%" cellspacing="0">
+    <!-- add the header-->
+    <th class="tdicon1" swidth="5%" scope="col">Part<br />_no</th>
+    <th class="tdicon1" scope="col">Descri<br />ption</th>
+    <th class="tdicon1" scope="col">Loca<br />tion</th>
+    <th class="tdicon1" scope="col">Return<br />Code</th>
+    <th class="tdicon1" scope="col">OnHand</th>
+    <th class="tdicon1" scope="col">OnOrder</th>
+    <th class="tdicon1" scope="col">OnReserve</th>
+    <th class="tdicon1" scope="col">Avail</th>
+    <th class="tdicon1" scope="col">12<br />mo.<br />hit</th>
+    <th class="tdicon1" width="5%" scope="col">12<br />mo<br />history</th>
+    <th class="tdicon1" scope="col">24<br />mo.<br />hit</th>
+    <th class="tdicon1" scope="col">24<br />mo<br />history</th>
+    <th class="tdicon1" scope="col">Dealer<br />Net</th>
+    <th class="tdicon1" scope="col">Surplus</th>
+    <th class="tdicon1" scope="col">Surplus<br />Ex.Net</th>
+    <th class="tdicon1" scope="col">APR<br />Code</th>
+    <th class="tdicon1" scope="col">APR<br />Source</th>
+    <th class="tdicon1" scope="col">Season</th>
+    <th class="tdicon1" scope="col">Bin<br />Loc</th>
+    <th class="tdicon1" scope="col">Pkg<br />Qty</th>
+    <th class="tdicon1" scope="col">Diff</th>
+    </tr> 
+  </thead>
+  <tbody>
+  <tr>
+  <!-- apply ngfor here-->
+  <tr *ngFor="let finalrpt of lstfinalresult">
+    <td>{{finalrpt.part_no}}</td>
+    <td>{{finalrpt.description}}</td>
+    <td>{{finalrpt.location}}</td>
+    <td>{{finalrpt.returnCode}}</td>
+    <td>{{finalrpt.onHand}}</td>
+    <td>{{finalrpt.onOrder}}</td>
+    <td>{{finalrpt.onReserve}}</td>
+    <td>{{finalrpt.avail}}</td>
+    <td>{{finalrpt.twelve_month_hit}}</td>
+    <td>{{finalrpt.twelve_month_history}}</td>
+    <td>{{finalrpt.twentyfour_month_hit}}</td>
+    <td>{{finalrpt.twentyfour_month_history}}</td>
+    <td>{{finalrpt.dealerNet}}</td>
+    <td>{{finalrpt.surplus}}</td>
+    <td>{{finalrpt.surplusExNet}}</td>
+    <td>{{finalrpt.aprcode}}</td>
+    <td>{{finalrpt.aprsource}}</td>
+    <td>{{finalrpt.season}}</td>
+    <td>{{finalrpt.binLoc}}</td>
+    <td>{{finalrpt.pkgQty}}</td>
+    <td>{{finalrpt.diff}}</td>
+  </tr>
+  </tbody>
+  </table>
+
+<button type="button" (click)="fileDownload()">Export to CSV</button>
+<button (click)="exportexcel()">Export to Excel</button>
+</div>
+
+<!--id selected:: {{ComplexSelected1}}
+id selected:: {{locationSelected}}
+id selected:: {{partsourceSelected}}-->
+

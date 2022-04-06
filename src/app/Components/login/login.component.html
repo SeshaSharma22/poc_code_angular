@@ -1,0 +1,31 @@
+<nav class="navbar navbar-light bg-light">
+<div class="container-fluid">
+<a class="navbar-brand" href="#">
+<img src="assets/Images/banner_amax_1.jpg" alt="Banner" class="d-inline-block align-text-top"> <img src="assets/Images/amax-logo-small.png" alt="" width="135" height="64" class="d-inline-block align-text-top">
+</a>
+</div>
+</nav>
+<br />
+<br /><div class="card">
+<br /> <form #loginForm='ngForm' >
+<div class="row mb-3">
+<label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+<div class="col-sm-4">
+<input type="email" class="form-control" id="inputusername" required ngModel name="username">
+</div>
+</div>
+<div class="row mb-3">
+<label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+<div class="col-sm-4">
+<input type="password" class="form-control" id="inputpassword" required ngModel name="password">
+</div>
+</div>
+<div class="form-group col-12"></div>
+<button [disabled]="!loginForm.valid" routerLink="/home" type="submit" class="btn btn-primary" onclick="validate()" >Sign in</button>
+&nbsp;
+<button type="button" class="btn btn-secondary ml-2">Cancel</button>
+</form>
+<br />
+</div>
+
+

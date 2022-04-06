@@ -1,0 +1,31 @@
+{
+  "Users": [
+    {
+      "Part No.": "15901901",
+      "Description": "bolt",
+      "Location": "Addision,PA",
+      "Return Code": "2",
+      "On Hand": "8",
+      "On Order": "0",
+      "On Reverse": "0",
+      "Avail": "9",
+      "12 Mo.Hits": "0",
+      "12 Mo.History": "0",
+      "24 Mo.Hits": "0",
+      "24 Mo.History": "0",
+      "Dealer.net": "0.0",
+      "Surplus": "12",
+      "Surplus Ex.Net": "0.0",
+      "APR Code": "A",
+      "APR Source": "D",
+      "Season": "H",
+      "Bin Loc": "B46",
+      "Pkg. Qty.": "40",
+      "Diff":"32"
+
+
+     
+
+    }
+  ]
+}
